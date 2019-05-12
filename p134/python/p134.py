@@ -10,17 +10,17 @@ class SparseArray:
                 break
             if e != 0:
                 map[i] = e
-    
-    def set(self, i, val):
-        if i >= self.size:
-            raise IndexError()
 
-        self.map[i] = val
+    def check_bounds(self, i):
+        if i < 0 or i >= self.size:
+            raise IndexError()
+    
+    def set(self, i, v):
+        self.check_bounds(i)
+        self.map[i] = v
 
     def get(self, i):
-        if i >= self.size:
-            raise IndexError()
-
+        self.check_bounds(i)
         v = self.map.get(i)
         if v is None:
             return 0

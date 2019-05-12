@@ -9,7 +9,9 @@ def test_p134_1():
     assert arr.get(3) == 0
 
     with pytest.raises(IndexError):
-        assert arr.get(5) == 0
+        assert arr.get(-1)
+        assert arr.get(-1, 0)
+        assert arr.get(5)
         assert arr.set(5, 0)
 
     arr.set(0, 1)
